@@ -1,0 +1,13 @@
+**/__pycache__
+**/*.pyc
+
+sql-init/dump-2025-02-12-navigator-production.sql
+
+redoc-static.html
+.DS_Store
+
+.build/
+
+.data/
+dist/
+.vscode/

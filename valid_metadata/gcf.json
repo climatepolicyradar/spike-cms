@@ -1,0 +1,200 @@
+{
+  "theme": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Adaptation",
+      "Cross-cutting",
+      "Mitigation"
+    ]
+  },
+  "_event": {
+    "event_type": {
+      "allow_any": false,
+      "allow_blanks": false,
+      "allowed_values": [
+        "Concept Approved",
+        "Project Approved",
+        "Under Implementation",
+        "Project Completed",
+        "Cancelled"
+      ]
+    },
+    "datetime_event_name": {
+      "allow_any": false,
+      "allow_blanks": false,
+      "allowed_values": [
+        "Project Approved"
+      ]
+    }
+  },
+  "region": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Africa",
+      "Asia-Pacific",
+      "Eastern Europe",
+      "Latin America and the Caribbean"
+    ]
+  },
+  "sector": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Public",
+      "Private"
+    ]
+  },
+  "status": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Concept Approved",
+      "Project Approved",
+      "Under Implementation",
+      "Project Completed",
+      "Cancelled"
+    ]
+  },
+  "_document": {
+    "type": {
+      "allow_any": false,
+      "allow_blanks": false,
+      "allowed_values": [
+        "Annual Performance Report",
+        "Approved funding proposal",
+        "Country programme",
+        "Final independent evaluation report",
+        "Gender action plan",
+        "Gender assessment",
+        "Policies, strategies, and guidelines",
+        "Project completion report"
+      ]
+    }
+  },
+  "project_id": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  },
+  "project_url": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  },
+  "result_area": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Buildings, cities, industries, and appliances",
+      "Ecosystems and ecosystem services",
+      "Energy generation and access",
+      "Forest and land use",
+      "Health, food, and water security",
+      "Infrastructure and built environment",
+      "Livelihoods of people and communities",
+      "Transport"
+    ]
+  },
+  "result_type": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Adaptation",
+      "Mitigation"
+    ]
+  },
+  "approved_ref": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  },
+  "implementing_agency": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Acumen Fund, Inc.",
+      "Africa Finance Corporation",
+      "African Development Bank",
+      "Agence Française de Developpement",
+      "Agence luxembourgeoise pour la Coopération au Développement (Lux-Development S.A.) (known as \"Luxembourg Development Cooperation Agency\")",
+      "Agency for Agricultural Development of Morocco",
+      "Alternative Energy Promotion Centre (Nepal)",
+      "Asian Development Bank",
+      "Banque Ouest Africaine de Développement (West African Development Bank)",
+      "Bhutan Trust Fund for Environmental Conservation",
+      "Camco Management Limited",
+      "Caribbean Community Climate Change Centre",
+      "Central American Bank for Economic Integration",
+      "Centre de Suivi Ecologique",
+      "Compañia Española de Financiación del Desarrollo",
+      "Conservation International Foundation",
+      "Corporación Andina de Fomento",
+      "CRDB Bank Plc",
+      "Department of Environment, Ministry of Health and Environment, Government of Antigua and Barbuda",
+      "Deutsche Bank AktienGesellschaft AG",
+      "Deutsche Gesellschaft fuer Internationale Zusammenarbeit (GIZ) GmbH",
+      "Development Bank of Southern Africa",
+      "Ecobank Ghana",
+      "Environmental Investment Fund",
+      "European Bank for Reconstruction and Development",
+      "Fiji Development Bank",
+      "Fondo Mexicano para la Conservación de la Naturaleza A.C.",
+      "Fonds National pour L’Environnement",
+      "Food and Agriculture Organization of the United Nations",
+      "Fundación Avina",
+      "IDB Invest",
+      "Infrastructure Development Company Limited (Bangladesh)",
+      "Inter-American Development Bank",
+      "International Bank for Reconstruction and Development and International Development Association",
+      "International Finance Corporation",
+      "International Fund for Agricultural Development",
+      "International Union for Conservation of Nature",
+      "Japan International Cooperation Agency",
+      "JS Bank Limited (Pakistan)",
+      "Korea Development Bank",
+      "Kreditanstalt für Wiederaufbau",
+      "Land Bank of the Philippines",
+      "Macquarie Alternative Assets Management Limited",
+      "Micronesia Conservation Trust",
+      "Ministry of Environment (formerly Ministry of Natural Resources of Rwanda)",
+      "Ministry of Finance and Economic Management, Cook Islands",
+      "Ministry of Finance of the Federal Democratic Republic of Ethiopia",
+      "MUFG Bank, Ltd",
+      "National Bank for Agriculture and Rural Development (India)",
+      "National Environment Management Authority of Kenya",
+      "Nederlandse Financierings-Maatschappij voor Ontwikkelingslanden",
+      "Nordic Environment Finance Corporation",
+      "Pacific Community",
+      "Palli Karma-Sahayak Foundation (Bangladesh)",
+      "Pegasus Capital Advisors",
+      "Peruvian Trust Fund for National Parks and Protected Areas",
+      "Sahara and Sahel Observatory",
+      "Save the Children Australia",
+      "Secretariat of the Pacific Regional Environment Programme",
+      "Small Industries Development Bank of India",
+      "United Nations Development Programme",
+      "United Nations Environment Programme",
+      "World Food Programme",
+      "World Wildlife Fund, Inc.",
+      "XacBank JSC (Mongolia)",
+      "Alliance for a Green Revolution in Africa",
+      "Fonds National pour L’Environnement",
+      "La Banque Agricole (formerly Caisse Nationale de Credit Agricole du Senegal)",
+      "Mirova Global Sustainable Equity Fund",
+      "National Rural Support Programme (Pakistan)",
+      "One Acre Fund"
+    ]
+  },
+  "project_value_fund_spend": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  },
+  "project_value_co_financing": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  }
+}

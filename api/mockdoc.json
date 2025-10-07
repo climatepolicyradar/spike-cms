@@ -1,0 +1,33 @@
+{
+    "id": "482",
+    "title": "Law on Energy Saving",
+    "labels": [
+        {
+            "label": {
+                "id": "Genre/Laws and Policies",
+                "title": "Laws and Policies",
+                "type": "Genre"
+            },
+            "relationship": "is",
+            "timestamp": "2025-09-18T21:40:25.144596"
+        },
+        {
+            "label": {
+                "id": "DocumentType/Law",
+                "title": "Law",
+                "type": "DocumentType"
+            },
+            "relationship": "is",
+            "timestamp": "2025-09-18T21:40:25.144633"
+        },
+        {
+            "label": {
+                "id": "Geography/KAZ",
+                "title": "KAZ",
+                "type": "Geography"
+            },
+            "relationship": "is",
+            "timestamp": "2025-09-18T21:40:25.147357"
+        }
+    ]
+}

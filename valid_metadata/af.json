@@ -1,0 +1,139 @@
+{
+  "_event": {
+    "event_type": {
+      "allow_any": false,
+      "allow_blanks": false,
+      "allowed_values": [
+        "Project Approved",
+        "Under Implementation",
+        "Project Completed"
+      ]
+    },
+    "datetime_event_name": {
+      "allow_any": false,
+      "allow_blanks": false,
+      "allowed_values": ["Project Approved"]
+    }
+  },
+  "region": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Other",
+      "Africa",
+      "Latin America & Caribbean",
+      "Eastern Europe",
+      "Asia-Pacific"
+    ]
+  },
+  "sector": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Food Security",
+      "Water management",
+      "Disaster Risk Reduction",
+      "Learning",
+      "Infrastructure,Rural development",
+      "Urban development",
+      "Ecosystem-based adaptation",
+      "Agriculture",
+      "Rural Development",
+      "Multi-sector",
+      "Innovation in Adaptation Finance",
+      "Disaster risk reduction and early warning system",
+      "Transboundary Water Management",
+      "Ecosystem-Based Adaptation",
+      "Forests",
+      "Readiness",
+      "Coastal management",
+      "Rural development"
+    ]
+  },
+  "status": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Project Approved",
+      "Under Implementation",
+      "Project Completed"
+    ]
+  },
+  "_document": {},
+  "project_id": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  },
+  "project_url": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  },
+  "implementing_agency": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Protected Areas Conservation Trust",
+      "Unidad Para Cambio Rural Argentina",
+      "Comisión Acción Social Menonita (CASM) of Honduras",
+      "United Nations Industrial Development Organization",
+      "International Fund Agricultural Dev",
+      "United Nations Educational, Scientific and Cultural Organization",
+      "Ministry of Finance and Economic Management",
+      "Ministry of Water and Environment of Uganda",
+      "South Africa National Biodiversity Institution",
+      "Development Bank of Latin America",
+      "UN-Habitat",
+      "Fundecooperacion Para el Desarollo Sostenible",
+      "Department of Environment Ministry of Health and the Environment (ABED)",
+      "Caribbean Development Bank",
+      "Food and Agriculture Organization of the United Nations",
+      "The Interprofessional Fund for Agricultural Research",
+      "Fonds d’Intervention pour l’Environnement (FIE)",
+      "Ministry of Planning and International Cooperation",
+      "Partnership for Governance Reform (Kemitraan) of Indonesia",
+      "Secretariat of the Pacific Regional Environment Programme",
+      "Fundacion Natura",
+      "Peruvian Trust Fund for National Parks and Protected Areas",
+      "Agencia de Cooperación Internacional de Chile",
+      "Ministry of Environment, Rwanda",
+      "World Meteorological Organization",
+      "Banque Ouest Africaine de Developpement",
+      "UN Environment Programme",
+      "Bhutan Trust Fund for Environmental Conservation",
+      "Agence pour le Developpement Agricole",
+      "UN Development Programme",
+      "Micronesia Conservation Trust",
+      "Dominican Institute of Integral Development of Dominican Republic",
+      "Planning Institute of Jamaica",
+      "International Bank of Reconstruction and Development",
+      "Mexican Institute of Water Technology",
+      "Environmental Management Agency of Zimbabwe",
+      "UN World Food Programme",
+      "Central American Bank for Economic Integration",
+      "Desert Research Foundation of Namibia",
+      "Agencia Nacl Investigacion Innov UY",
+      "Environmental Project Implementation Unit",
+      "Micronesia Conservation Trust (MCT)",
+      "National Environment Management Council",
+      "Ministry of Finance and Economic Cooperation of the Federal Democratic Republic of Ethiopia",
+      "National Environment Management Authority",
+      "Sahara and Sahel Observatory",
+      "National Bank for Agriculture and Rural Development",
+      "Centre de Suivi Ecologique",
+      "The Pacific Community",
+      "National Environment Fund Benin"
+    ]
+  },
+  "project_value_fund_spend": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  },
+  "project_value_co_financing": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  }
+}

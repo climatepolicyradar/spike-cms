@@ -1,0 +1,28 @@
+services:
+  navigator_db:
+    image: postgres:17
+    container_name: documents_navigator_db
+    environment:
+      POSTGRES_USER: navigator_admin
+      POSTGRES_PASSWORD: navigator_admin
+      POSTGRES_DB: navigator_admin
+    ports:
+      - 5432:5432
+    volumes:
+      - navigator_db_postgres_data:/var/lib/postgresql/data
+      - ./.data:/docker-entrypoint-initdb.d:ro
+  documents_db:
+    image: postgres:17
+    container_name: documents_db
+    environment:
+      POSTGRES_USER: documents
+      POSTGRES_PASSWORD: documents
+      POSTGRES_DB: documents
+    ports:
+      - 5433:5432
+    volumes:
+      - documents_db_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  navigator_db_postgres_data:
+  documents_db_postgres_data:

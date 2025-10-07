@@ -1,0 +1,46 @@
+{
+  "_event": {
+    "event_type": {
+      "allow_any": false,
+      "allow_blanks": false,
+      "allowed_values": ["Published"]
+    },
+    "datetime_event_name": {
+      "allow_any": false,
+      "allow_blanks": false,
+      "allowed_values": ["Published"]
+    }
+  },
+  "author": { "allow_any": true, "allow_blanks": false, "allowed_values": [] },
+  "_document": {
+    "type": {
+      "allow_any": false,
+      "allow_blanks": false,
+      "allowed_values": [
+        "Corporate voluntary report",
+        "Corporate regulatory filing",
+        "Guidance",
+        "Other"
+      ]
+    }
+  },
+  "author_type": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Individual",
+      "Academic/Research",
+      "National Body",
+      "Intergovernmental Organization",
+      "Corporate",
+      "Industry Body",
+      "NGO/Civil Society",
+      "Other"
+    ]
+  },
+  "external_id": {
+    "allow_any": true,
+    "allow_blanks": true,
+    "allowed_values": []
+  }
+}

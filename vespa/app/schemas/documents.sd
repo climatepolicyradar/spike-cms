@@ -1,0 +1,51 @@
+schema documents {
+
+  document documents {
+    field id type string {
+      indexing: index | summary
+      stemming: none
+    }
+
+    field title type string {
+      indexing: index | summary
+      stemming: none
+    }
+
+    struct Label {
+      field id    type string {}
+      field type  type string {}
+      field title type string {}
+    }
+
+    struct LabelRelationship {
+      field timestamp    type string {}
+      field relationship type string {}
+      field label        type Label {}
+    }
+
+    field labels type array<LabelRelationship> {
+      indexing: summary
+    }
+  }
+
+  field label_relationships type array<string> {
+    indexing: input labels | for_each { get_field relationship } | attribute | summary
+  }
+
+  field label_types type array<string> {
+    indexing: input labels | for_each { get_field label | get_field type } | attribute | summary
+  }
+
+  field label_titles type array<string> {
+    indexing: input labels | for_each { get_field label | get_field title } | attribute | summary
+  }
+
+  field label_ids type array<string> {
+    indexing: input labels | for_each { get_field label | get_field id } | attribute | summary
+  }
+  
+
+  rank-profile default inherits default {
+    first-phase { expression: bm25(title) }
+  }
+}

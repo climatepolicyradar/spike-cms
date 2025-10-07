@@ -1,0 +1,22 @@
+docker-create:
+    docker run --detach --name vespa --hostname vespa-container \
+    --publish 8081:8080 --publish 19071:19071 \
+    vespaengine/vespa
+
+docker-start:
+    docker start vespa
+
+docker-stop:
+    docker stop vespa
+
+docker-restart:
+    docker restart vespa
+
+start: 
+    vespa deploy --wait 600 ./app
+
+vespa_empty:
+    curl -X DELETE "localhost:8081/document/v1/production/documents/docid?selection=true&cluster=documents"
+
+vespa_deploy:
+    vespa deploy --wait 600 ./app

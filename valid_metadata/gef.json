@@ -1,0 +1,105 @@
+{
+  "_event": {
+    "event_type": {
+      "allow_any": false,
+      "allow_blanks": false,
+      "allowed_values": [
+        "Concept Approved",
+        "Project Approved",
+        "Under Implementation",
+        "Project Completed",
+        "Cancelled"
+      ]
+    },
+    "datetime_event_name": {
+      "allow_any": false,
+      "allow_blanks": false,
+      "allowed_values": ["Concept Approved"]
+    }
+  },
+  "region": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Africa",
+      "Asia",
+      "Europe and Central Asia",
+      "Global",
+      "Latin America and Caribbean",
+      "Regional",
+      "Small Islands Developing States"
+    ]
+  },
+  "status": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Concept Approved",
+      "Project Approved",
+      "Under Implementation",
+      "Project Completed",
+      "Cancelled"
+    ]
+  },
+  "_document": {},
+  "focal_area": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Biodiversity",
+      "Chemicals and Waste",
+      "Climate Change",
+      "International Waters",
+      "Land Degradation",
+      "Multi Focal Area",
+      "Ozone Depleting Substances",
+      "POPs"
+    ]
+  },
+  "project_id": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  },
+  "project_url": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  },
+  "implementing_agency": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "African Development Bank",
+      "Asian Development Bank",
+      "Conservation International",
+      "Development Bank of Latin America",
+      "Development Bank of Southern Africa",
+      "European Bank for Reconstruction and Development",
+      "Food and Agriculture Organization",
+      "Foreign Economic Cooperation Office",
+      "GEF Secretariat",
+      "Inter-American Development Bank",
+      "International Finance Corporation",
+      "International Fund for Agricultural Development",
+      "International Union for Conservation of Nature",
+      "Ministry of Environmental Protection of China",
+      "The World Bank",
+      "United Nations Development Programme",
+      "United Nations Environment Programme",
+      "United Nations Industrial Development Organization",
+      "West African Development Bank",
+      "World Wildlife Fund - US Chapter"
+    ]
+  },
+  "project_value_fund_spend": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  },
+  "project_value_co_financing": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  }
+}

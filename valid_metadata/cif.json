@@ -1,0 +1,84 @@
+{
+  "_event": {
+    "event_type": {
+      "allow_any": false,
+      "allow_blanks": false,
+      "allowed_values": [
+        "Project Approved",
+        "Under Implementation",
+        "Project Completed",
+        "Cancelled"
+      ]
+    },
+    "datetime_event_name": {
+      "allow_any": false,
+      "allow_blanks": false,
+      "allowed_values": ["Project Approved"]
+    }
+  },
+  "region": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Other",
+      "Asia",
+      "Europe & Central Asia",
+      "Global",
+      "Latin America & Caribbean",
+      "Sub-Saharan Africa",
+      "MENA Region"
+    ]
+  },
+  "sector": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Private Sector",
+      "Public / Private Sector",
+      "Public Sector"
+    ]
+  },
+  "status": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "Project Approved",
+      "Under Implementation",
+      "Project Completed",
+      "Cancelled"
+    ]
+  },
+  "_document": {},
+  "project_id": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  },
+  "project_url": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  },
+  "implementing_agency": {
+    "allow_any": false,
+    "allow_blanks": false,
+    "allowed_values": [
+      "African Development Bank (AFDB)",
+      "Asian Development Bank (ADB)",
+      "European Bank for Reconstruction and Development (EBRD)",
+      "Inter-American Development Bank (IADB)",
+      "International Bank for Reconstruction and Development (IBRD)",
+      "International Finance Corporation (IFC)"
+    ]
+  },
+  "project_value_fund_spend": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  },
+  "project_value_co_financing": {
+    "allow_any": true,
+    "allow_blanks": false,
+    "allowed_values": []
+  }
+}

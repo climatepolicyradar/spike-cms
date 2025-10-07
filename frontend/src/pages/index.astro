@@ -1,0 +1,476 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+function parseFilter(filter: string): { op: string; value: string } {
+	const [head, ...tail] = filter.split(":");
+	if (tail.length === 0) {
+		return { op: "and", value: head };
+	}
+	return { op: head, value: tail.join(":") };
+}
+
+export const prerender = false;
+
+const searchParams = Astro.url.searchParams;
+const selectedLabels = searchParams
+	.getAll("labels")
+	.map((label) => parseFilter(label));
+const selectedLabelValues = selectedLabels.map(({ value }) => value);
+const selectedRelationships = searchParams
+	.getAll("relationships")
+	.map((relationship) => parseFilter(relationship));
+const selectedRelationshipValues = selectedRelationships.map(
+	({ value }) => value,
+);
+
+const urlSearchParams = new URLSearchParams(
+	selectedLabels.map(({ op, value }) => ["labels", `${op}:${value}`]),
+);
+const urlRelationshipsParams = new URLSearchParams(
+	selectedRelationships.map(({ op, value }) => [
+		"relationships",
+		`${op}:${value}`,
+	]),
+);
+
+const url = `http://localhost:8001/?${urlSearchParams.toString()}&${urlRelationshipsParams.toString()}`;
+console.info("Fetching URL:", url);
+const response = await fetch(url);
+const data = await response.json();
+
+const { documents, groups } = data;
+
+
+function addLabelToUrl(label: string) {
+	const url = new URL(Astro.url);
+	url.searchParams.append("labels", label);
+	return url.toString();
+}
+
+function removeLabelFromUrl(label: string) {
+	const url = new URL(Astro.url);
+	url.searchParams.delete("labels", `and:${label}`);
+	url.searchParams.delete("labels", `or:${label}`);
+	return url.toString();
+}
+
+function addRelationshipToUrl(relationship: string) {
+	const url = new URL(Astro.url);
+	url.searchParams.append("relationships", relationship);
+	return url.toString();
+}
+
+function removeRelationshipFromUrl(relationship: string) {
+	const url = new URL(Astro.url);
+	url.searchParams.delete("relationships", `and:${relationship}`);
+	url.searchParams.delete("relationships", `or:${relationship}`);
+	return url.toString();
+}
+---
+
+<Layout>
+	<style>
+		.container {
+			display: grid;
+			grid-template-rows: auto 1fr auto;
+			height: 100vh;
+		}
+
+		header,
+		footer {
+			grid-column: 1 / -1;
+		}
+
+		main {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			overflow: hidden;
+		}
+
+		.left-content,
+		.right-content {
+			overflow-y: auto;
+			padding: 1rem;
+		}
+
+		li {
+			padding: 0.25rem 0;
+		}
+
+		/* DUMB STUFF */
+		@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap");
+		@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+		:root {
+			--neon-pink: #ff0080;
+			--neon-blue: #00ffff;
+			--neon-green: #00ff00;
+			--dark-bg: #0a0a0f;
+		}
+
+		.metadata {
+			font-size: 10px;
+			color: var(--neon-blue);
+			background: var(--dark-bg);
+			padding: 0.1rem 0;
+		}
+		.metadata-big {
+			font-size: 12px;
+			color: var(--neon-blue);
+			background: var(--dark-bg);
+			padding: 0.1rem 0;
+		}
+		.btn {
+			margin: 0 2px;
+			color: var(--neon-pink);
+		}
+
+		body {
+			font-family: "Press Start 2P", monospace;
+		}
+		body {
+			position: relative;
+		}
+
+		body::before {
+			content: "";
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: radial-gradient(
+					circle at 10% 20%,
+					#ff008040 1px,
+					transparent 1px
+				),
+				radial-gradient(
+					circle at 80% 80%,
+					#00ffff40 1px,
+					transparent 1px
+				),
+				radial-gradient(
+					circle at 40% 40%,
+					#00ff0040 1px,
+					transparent 1px
+				),
+				radial-gradient(
+					circle at 90% 10%,
+					#ffff0040 1px,
+					transparent 1px
+				),
+				radial-gradient(
+					circle at 20% 90%,
+					#ff800040 1px,
+					transparent 1px
+				),
+				radial-gradient(
+					circle at 60% 30%,
+					#8000ff40 1px,
+					transparent 1px
+				);
+			background-size:
+				50px 50px,
+				80px 80px,
+				120px 120px,
+				200px 200px,
+				150px 150px,
+				90px 90px;
+			animation: pixel-drift 20s linear infinite;
+			z-index: -1;
+		}
+
+		@keyframes pixel-drift {
+			0% {
+				transform: translate(0, 0);
+			}
+			25% {
+				transform: translate(-10px, -10px);
+			}
+			50% {
+				transform: translate(10px, -5px);
+			}
+			75% {
+				transform: translate(-5px, 10px);
+			}
+			100% {
+				transform: translate(0, 0);
+			}
+		}
+
+		.retro-header {
+			background: var(--dark-bg);
+			border-bottom: 2px solid var(--neon-green);
+			padding: 1rem;
+			font-family: "Press Start 2P", monospace;
+			font-size: 12px;
+		}
+
+		.boot-sequence {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+
+		.system-info {
+			color: var(--neon-green);
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+
+		.blinking {
+			animation: blink 1s infinite;
+			color: var(--neon-green);
+		}
+
+		@keyframes blink {
+			0%,
+			50% {
+				opacity: 1;
+			}
+			51%,
+			100% {
+				opacity: 0;
+			}
+		}
+
+		.status-bar {
+			display: flex;
+			gap: 2rem;
+			font-size: 10px;
+			color: var(--neon-blue);
+		}
+
+		.status.blink {
+			color: var(--neon-pink);
+			animation: pulse 2s ease-in-out infinite;
+		}
+
+		@keyframes pulse {
+			0%,
+			100% {
+				opacity: 0.7;
+			}
+			50% {
+				opacity: 1;
+				text-shadow: 0 0 10px var(--neon-pink);
+			}
+		}
+	</style>
+
+	<div class="container">
+		<header class="retro-header">
+			<div class="boot-sequence">
+				<div class="system-info">
+					<span class="blinking">█</span> PO RA DO v3.14 LOADED
+				</div>
+				<div class="status-bar">
+					<span class="cpu">CPU: 8-BIT</span>
+					<span class="ram">RAM: 64K</span>
+					<span class="status blink">ONLINE</span>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="left-content metadata-big">
+				<h2>Selected relationships</h2>
+				<ol>
+					{
+						groups.json.root.children
+							.filter((group) => group.id === "group:root:3")
+							.map((group) => {
+								return group.children.map((groupChild) => {
+									return groupChild.children
+										.filter((groupChildValues) =>
+											selectedRelationshipValues.includes(
+												groupChildValues.value,
+											),
+										)
+										.map((groupChildValues) => {
+											return (
+												<li>
+													<a
+														href={removeRelationshipFromUrl(
+															groupChildValues.value,
+														)}
+														class="btn"
+													>
+														[ remove ]
+													</a>
+													{" : "}
+													{groupChildValues.value}
+												</li>
+											);
+										});
+								});
+							})
+					}
+				</ol>
+
+				<h2>Relationships</h2>
+				<ol>
+					{
+						groups.json.root.children
+							.filter((group) => group.id === "group:root:3")
+							.map((group) => {
+								return group.children.map((groupChild) => {
+									return groupChild.children
+										.filter(
+											(groupChildValues) =>
+												!selectedRelationshipValues.includes(
+													groupChildValues.value,
+												),
+										)
+										.map((groupChildValues) => {
+											return (
+												<li>
+													<a
+														href={addRelationshipToUrl(
+															`and:${groupChildValues.value}`,
+														)}
+														class="btn"
+													>
+														[and]
+													</a>
+													<a
+														href={addRelationshipToUrl(
+															`or:${groupChildValues.value}`,
+														)}
+														class="btn"
+													>
+														[or]
+													</a>
+													{" : "}
+													{groupChildValues.value}
+													<span class="metadata">
+														(
+														{
+															groupChildValues
+																.fields[
+																"count()"
+															]
+														}
+														)
+													</span>
+												</li>
+											);
+										});
+								});
+							})
+					}
+				</ol>
+				<hr />
+				<h2>Selected labels</h2>
+				<ol>
+					{
+						groups.json.root.children
+							.filter((group) => group.id === "group:root:2")
+							.map((group) => {
+								return group.children.map((groupChild) => {
+									return groupChild.children
+										.filter((groupChildValues) =>
+											selectedLabelValues.includes(
+												groupChildValues.value,
+											),
+										)
+										.map((groupChildValues) => {
+											return (
+												<li>
+													<a
+														href={removeLabelFromUrl(
+															groupChildValues.value,
+														)}
+														class="btn"
+													>
+														[remove]
+													</a>
+													{" : "}
+													{groupChildValues.value}
+												</li>
+											);
+										});
+								});
+							})
+					}
+				</ol>
+
+				<h2>Labels</h2>
+				<ol>
+					{
+						groups.json.root.children
+							.filter((group) => group.id === "group:root:2")
+							.map((group) => {
+								return group.children.map((groupChild) => {
+									return groupChild.children
+										.filter(
+											(groupChildValues) =>
+												!selectedLabelValues.includes(
+													groupChildValues.value,
+												),
+										)
+										.map((groupChildValues) => {
+											return (
+												<li>
+													<a
+														href={addLabelToUrl(
+															`and:${groupChildValues.value}`,
+														)}
+														class="btn"
+													>
+														[and]
+													</a>
+													<a
+														href={addLabelToUrl(
+															`or:${groupChildValues.value}`,
+														)}
+														class="btn"
+													>
+														[or]
+													</a>
+													{" : "}
+													{groupChildValues.value}
+													<span class="metadata">
+														(
+														{
+															groupChildValues
+																.fields[
+																"count()"
+															]
+														}
+														)
+													</span>
+												</li>
+											);
+										});
+								});
+							})
+					}
+				</ol>
+			</div>
+
+			<div class="right-content">
+				<h2>Documents</h2>
+				<h3>{documents.json.root.fields.totalCount} documents</h3>
+				<ol>
+					{
+						documents.json.root.children
+							.filter((child) =>
+								child.id.startsWith(
+									"id:production:documents::",
+								),
+							)
+							.map((document) => {
+								return (
+									<li class="ai-typing">
+										{document.fields.title}
+									</li>
+								);
+							})
+					}
+				</ol>
+			</div>
+		</main>
+		<footer>🐾🦶🐾🦶🐾🦶🐾🦶🐾🦶</footer>
+	</div>
+</Layout>
